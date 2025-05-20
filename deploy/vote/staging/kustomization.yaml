@@ -5,3 +5,12 @@ resources:
 patchesStrategicMerge:
 - deployment.yaml
 - service.yaml
+  
+replicas:
+  - name: vote
+    count: 8
+
+images:
+  - name: schoolofdevops/vote
+    newTag: v4
+    newName: lfs269/vote
