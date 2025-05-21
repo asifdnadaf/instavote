@@ -2,19 +2,26 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vote
-  creationTimestamp: null
   labels:
     app: vote
     name: vote
 spec:
   minReadySeconds: 20
   replicas: 4
+  selectors:
+    matchLabeles:
+      app: vote
+      name: vote
   template:
+    metadata:
+      labels:
+        app: vote
+        name: vote
     spec:
       containers:
       - image: schoolofdevops/vote:v3
         name: vote
         envFrom:
-          - configMapReg:
+          - configMapRef:
               name: vote
               optional: true
