@@ -9,7 +9,15 @@ metadata:
 spec:
   minReadySeconds: 20
   replicas: 3
+  selector:
+    matchLabels:
+      app: vote
+      name: vote
   template:
+    metadata:
+      labels:
+        app: vote
+        name: vote
     spec:
       containers:
       - image: schoolofdevops/vote:v4

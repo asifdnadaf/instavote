@@ -6,12 +6,12 @@ metadata:
     app: vote
     name: vote
 spec:
-  minReadySeconds: 20
-  replicas: 4
-  selectors:
-    matchLabeles:
+  selector:
+    matchLabels:
       app: vote
       name: vote
+  minReadySeconds: 20
+  replicas: 4
   template:
     metadata:
       labels:
