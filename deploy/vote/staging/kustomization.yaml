@@ -10,6 +10,9 @@ replicas:
   - name: vote
     count: 8
 
+images:
+  - name: schoolofdevops/vote
+    newTag: v8 # {"$imagepolicy": "flux-system:vote:tag"}
 commonLabels:
   project: instavote
   env: staging
