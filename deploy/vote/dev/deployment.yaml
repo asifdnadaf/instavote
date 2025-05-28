@@ -1,22 +1,47 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: vote
+#   labels:
+#     app: vote
+#     name: vote
+# spec:
+#   minReadySeconds: 20
+#   replicas: 3
+#   selector:
+#     matchLabels:
+#       app: vote
+#       name: vote
+#   template:
+#     metadata:
+#       labels:
+#         app: vote
+#         name: vote
+#     spec:
+#       containers:
+#         - name: vote
+#           image: schoolofdevops/vote:v4
+
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vote
   labels:
     app: vote
-    name: vote
+    name: vote # This label on the Deployment itself isn't strictly necessary for the Deployment's function, but it's harmless.
 spec:
   minReadySeconds: 20
   replicas: 3
   selector:
     matchLabels:
       app: vote
-      name: vote
+      name: vote # This MUST match the labels on the Pod template below.
   template:
     metadata:
       labels:
         app: vote
-        name: vote
+        name: vote # These are the labels the Pods will have.
     spec:
       containers:
         - name: vote
