@@ -9,10 +9,10 @@ metadata:
 spec:
   minReadySeconds: 20
   replicas: 3
-  selector:
-    matchLabels:
-      app: vote
-      name: vote
+  # selector:
+  #   matchLabels:
+  #     app: vote
+  #     name: vote
   template:
     metadata:
       labels:
